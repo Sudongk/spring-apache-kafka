@@ -1,0 +1,27 @@
+server:
+  port: 0
+
+spring:
+  kafka:
+    # kafka bootstrap server
+    bootstrap-servers: localhost:9092
+    # consumer properties
+    consumer:
+      # set to earliest to consume from the beginning of the topic
+      # set to latest to consume only new messages
+      auto-offset-reset: latest
+      # group-id is required for consumer
+      group-id: my-group1
+      # key and value deserializers
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        # trust all packages during deserialization
+        spring.json.trusted.packages: '*'
+
+    # producer properties
+    producer:
+      # key and value serializers
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
