@@ -14,7 +14,7 @@ spring:
       group-id: my-group1
       # key and value deserializers
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ByteArrayDeSerializer
       properties:
         # trust all packages during deserialization
         spring.json.trusted.packages: '*'
